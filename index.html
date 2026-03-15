@@ -320,9 +320,7 @@ async function sendMessage(){
       method:'POST',
       headers:{
         'Content-Type':'application/json',
-        'Authorization':'Bearer '+apiKey.replace(/[^\x20-\x7E]/g,'').trim(),
-        'HTTP-Referer':'https://voicehistory.app',
-        'X-Title':'Voice of History'
+        'Authorization':'Bearer '+apiKey.replace(/[^\x20-\x7E]/g,'').trim()
       },
       body:JSON.stringify({
         model:'anthropic/claude-sonnet-4-5',
