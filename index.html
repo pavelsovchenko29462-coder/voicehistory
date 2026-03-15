@@ -322,7 +322,7 @@ async function sendMessage(){
         'Content-Type':'application/json',
         'Authorization':'Bearer '+apiKey.replace(/[^\x20-\x7E]/g,'').trim(),
         'HTTP-Referer':'https://voicehistory.app',
-        'X-Title':'Голоса Истории'
+        'X-Title':'Voice of History'
       },
       body:JSON.stringify({
         model:'anthropic/claude-sonnet-4-5',
