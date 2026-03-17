@@ -19,27 +19,11 @@ body{background:#060914;color:#c8d8f0;font-family:Georgia,serif;min-height:100vh
 /* Layout */
 #app{position:relative;z-index:1;min-height:100vh;}
 
-/* Setup */
-#setup{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
-.setup-box{background:rgba(10,18,40,.9);border:1px solid rgba(120,160,255,.2);border-radius:10px;padding:40px 36px;max-width:420px;width:100%;backdrop-filter:blur(10px);box-shadow:0 0 60px rgba(91,143,247,.15);animation:fadeUp .6s ease;}
-.setup-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:#c8d8f0;text-align:center;margin-bottom:6px;}
-.setup-sub{font-size:13px;color:#3a4a68;font-style:italic;text-align:center;margin-bottom:28px;line-height:1.6;}
-.setup-label{font-size:12px;color:#7a90b8;margin-bottom:8px;letter-spacing:.5px;}
-.setup-input{width:100%;background:rgba(6,9,20,.9);border:1px solid rgba(120,160,255,.2);border-radius:5px;padding:11px 14px;color:#c8d8f0;font-family:Georgia,serif;font-size:14px;outline:none;transition:border-color .2s;}
-.setup-input:focus{border-color:rgba(91,143,247,.5);}
-.setup-input::placeholder{color:rgba(120,150,200,.35);font-style:italic;}
-.setup-btn{width:100%;margin-top:16px;padding:12px;background:linear-gradient(135deg,#3a6fd8,#1a3a9f);border:none;border-radius:5px;color:#fff;font-family:Georgia,serif;font-size:15px;font-weight:bold;cursor:pointer;letter-spacing:.5px;box-shadow:0 0 20px rgba(91,143,247,.25);transition:all .2s;}
-.setup-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(91,143,247,.35);}
-.setup-info{margin-top:18px;padding:14px;background:rgba(91,143,247,.05);border:1px solid rgba(91,143,247,.1);border-radius:5px;font-size:11px;color:#3a4a68;line-height:1.8;}
-.setup-info a{color:#5b8ff7;}
-
 /* Nav */
 nav{padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(120,160,255,.1);backdrop-filter:blur(16px);background:rgba(6,9,20,.8);position:sticky;top:0;z-index:10;}
 .nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
 .nav-logo-icon{font-size:20px;}
 .nav-logo-text{font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:#c8d8f0;letter-spacing:2px;}
-.nav-key-btn{background:transparent;border:1px solid rgba(120,160,255,.2);border-radius:3px;padding:5px 14px;color:#3a4a68;font-size:11px;cursor:pointer;font-family:Georgia,serif;transition:all .2s;}
-.nav-key-btn:hover{color:#7a90b8;border-color:rgba(120,160,255,.4);}
 
 /* Home */
 #home{display:none;}
@@ -105,37 +89,18 @@ nav{padding:12px 24px;display:flex;align-items:center;justify-content:space-betw
 
 <div id="app">
 
-  <!-- SETUP -->
-  <div id="setup">
-    <div class="setup-box">
-      <div style="text-align:center;font-size:44px;margin-bottom:14px;">🌌</div>
-      <div class="setup-title">Голоса Истории</div>
-      <div class="setup-sub">Вставь свой API ключ от OpenRouter<br>чтобы персонажи ожили</div>
-      <div class="setup-label">Твой API ключ:</div>
-      <input type="password" class="setup-input" id="keyInput" placeholder="sk-or-v1-..." onkeydown="if(event.key==='Enter')saveKey()">
-      <button class="setup-btn" onclick="saveKey()">Войти →</button>
-      <div class="setup-info">
-        🔒 Ключ хранится только в твоём браузере<br>
-        📍 Получить ключ: <a href="https://openrouter.ai/keys" target="_blank">openrouter.ai/keys</a><br>
-        💰 Бесплатные модели доступны сразу<br>
-        🆓 Лимит: 200 запросов в день бесплатно
-      </div>
-    </div>
-  </div>
-
   <!-- HOME -->
-  <div id="home">
+  <div id="home" style="display:block;">
     <nav>
       <div class="nav-logo" onclick="showHome()">
         <div class="nav-logo-icon">🌌</div>
         <div class="nav-logo-text">ГОЛОСА ИСТОРИИ</div>
       </div>
-      <button class="nav-key-btn" onclick="changeKey()">Сменить ключ</button>
     </nav>
     <div class="hero">
       <h1>Поговори с теми,<br>кто изменил историю</h1>
       <p>Спорь с Лениным. Спроси Джобса о провале.<br>Узнай у Наполеона о Ватерлоо.</p>
-      <div class="hero-note">✦ Бесплатная модель · 200 запросов в день · Без оплаты</div>
+      <div class="hero-note">✦ Живые диалоги с великими личностями</div>
     </div>
     <div class="grid" id="personGrid"></div>
   </div>
@@ -211,6 +176,7 @@ function drawStars(){
   requestAnimationFrame(drawStars);
 }
 drawStars();
+renderCards();
 window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
 
 // Render cards
@@ -316,11 +282,10 @@ async function sendMessage(){
   document.getElementById('sendBtn').disabled=true;
 
   try{
-    const res = await fetch("https://white-bar-ed1f.pavelsovchenko29462.workers.dev", {
+    const res = await fetch("https://voicehistory-api.pavelsovchenko29462.workers.dev", {
       method:'POST',
       headers:{
-        'Content-Type':'application/json',
-        'Authorization':'Bearer '+apiKey.replace(/[^\x20-\x7E]/g,'').trim()
+        'Content-Type':'application/json'
       },
       body:JSON.stringify({
         model:'anthropic/claude-sonnet-4-5',
