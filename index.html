@@ -1,3 +1,6 @@
+Index · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,88 +10,86 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700&family=Playfair+Display:wght@700;900&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;}
-body{background:#060914;color:#c8d8f0;font-family:'Cormorant Garamond',Georgia,serif;min-height:100vh;overflow-x:hidden;}
-::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:rgba(91,143,247,.2);border-radius:2px}
+body{background:#141820;color:#d8dce8;font-family:'Cormorant Garamond',Georgia,serif;min-height:100vh;overflow-x:hidden;font-size:16px;line-height:1.6;}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:rgba(160,180,220,.25);border-radius:2px}
  
 #stars{position:fixed;inset:0;z-index:0;pointer-events:none;}
 .nebula{position:fixed;border-radius:50%;pointer-events:none;z-index:0;}
 #app{position:relative;z-index:1;min-height:100vh;}
  
-nav{padding:14px 24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(120,160,255,.08);backdrop-filter:blur(16px);background:rgba(6,9,20,.85);position:sticky;top:0;z-index:10;}
+nav{padding:14px 24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(160,180,220,.1);backdrop-filter:blur(16px);background:rgba(20,24,32,.9);position:sticky;top:0;z-index:10;}
 .nav-logo{display:flex;align-items:center;gap:12px;cursor:pointer;}
 .nav-logo svg{width:28px;height:28px;}
 .nav-logo-text{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;letter-spacing:4px;background:linear-gradient(135deg,#e8d5b7 0%,#f0e6d3 30%,#c8a870 60%,#e8d5b7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;}
  
 #home{display:none;}
-.hero{padding:50px 24px 20px;text-align:center;max-width:700px;margin:0 auto;animation:fadeUp .7s ease;}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,52px);font-weight:900;line-height:1.15;margin-bottom:18px;background:linear-gradient(135deg,#fff 0%,#a8c8ff 40%,#5b8ff7 70%,#c8a8ff 100%);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradShift 6s ease infinite;}
-.hero p{font-size:16px;color:#7a90b8;line-height:1.8;font-style:italic;margin-bottom:10px;}
-.hero-note{font-size:12px;color:#3a4a68;margin-bottom:30px;}
+.hero{padding:44px 24px 20px;text-align:center;max-width:700px;margin:0 auto;animation:fadeUp .7s ease;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,48px);font-weight:900;line-height:1.2;margin-bottom:16px;color:#eef0f6;}
+.hero p{font-size:17px;color:#9aa4b8;line-height:1.8;font-style:italic;margin-bottom:10px;}
+.hero-note{font-size:13px;color:#5a6478;margin-bottom:28px;}
  
 .category-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:0 20px 24px;max-width:960px;margin:0 auto;}
-.cat-btn{background:rgba(10,18,40,.7);border:1px solid rgba(120,160,255,.15);border-radius:20px;padding:7px 16px;color:#7a90b8;font-size:14px;cursor:pointer;font-family:'Cormorant Garamond',serif;font-weight:600;transition:all .25s;letter-spacing:.5px;}
-.cat-btn:hover,.cat-btn.active{background:rgba(91,143,247,.12);border-color:rgba(91,143,247,.4);color:#a8c8ff;}
+.cat-btn{background:rgba(30,36,50,.8);border:1px solid rgba(160,180,220,.12);border-radius:20px;padding:7px 16px;color:#8a94a8;font-size:14px;cursor:pointer;font-family:'Cormorant Garamond',serif;font-weight:600;transition:all .25s;}
+.cat-btn:hover,.cat-btn.active{background:rgba(80,110,180,.15);border-color:rgba(120,150,220,.35);color:#c0c8e0;}
  
 .cat-section{padding:0 20px 30px;max-width:1100px;margin:0 auto;}
-.cat-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#c8d8f0;margin-bottom:14px;padding-left:4px;display:flex;align-items:center;gap:10px;}
+.cat-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#c8ccd8;margin-bottom:14px;padding-left:4px;display:flex;align-items:center;gap:10px;}
 .cat-title-icon{font-size:18px;}
-.cat-title-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(120,160,255,.2),transparent);}
+.cat-title-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(160,180,220,.15),transparent);}
 .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:10px;}
  
-.card{background:rgba(10,18,40,.85);border:1px solid rgba(120,160,255,.12);border-radius:10px;padding:16px;cursor:pointer;backdrop-filter:blur(8px);transition:all .25s ease;animation:fadeUp .5s ease both;text-align:center;}
-.card:hover{transform:translateY(-4px);border-color:rgba(160,200,255,.4);box-shadow:0 8px 32px rgba(91,143,247,.15);}
-.card-portrait{width:72px;height:72px;border-radius:50%;object-fit:cover;margin:0 auto 10px;display:block;border:2px solid rgba(120,160,255,.2);box-shadow:0 0 16px rgba(91,143,247,.12);transition:all .3s ease;background:rgba(20,30,60,.5);}
-.card:hover .card-portrait{border-color:rgba(160,200,255,.5);box-shadow:0 0 24px rgba(91,143,247,.25);transform:scale(1.05);}
+.card{background:rgba(24,30,44,.85);border:1px solid rgba(160,180,220,.1);border-radius:10px;padding:16px;cursor:pointer;backdrop-filter:blur(8px);transition:all .25s ease;animation:fadeUp .5s ease both;text-align:center;}
+.card:hover{transform:translateY(-4px);border-color:rgba(160,180,220,.3);box-shadow:0 8px 28px rgba(40,60,120,.2);}
+.card-avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:#fff;transition:all .3s ease;position:relative;overflow:hidden;}
+.card-avatar::before{content:'';position:absolute;inset:0;border-radius:50%;background:inherit;filter:brightness(1.1);opacity:0;transition:opacity .3s;}
+.card:hover .card-avatar{transform:scale(1.08);box-shadow:0 0 20px rgba(0,0,0,.3);}
 .card-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:20px;letter-spacing:.5px;margin-bottom:6px;}
-.card-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#c8d8f0;margin-bottom:2px;}
-.card-era{font-size:11px;color:#3a4a68;margin-bottom:8px;}
-.card-link{font-size:12px;color:#5b8ff7;border-top:1px solid rgba(120,160,255,.08);padding-top:7px;}
+.card-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#dce0ea;margin-bottom:2px;}
+.card-era{font-size:12px;color:#6a7488;margin-bottom:8px;}
+.card-link{font-size:13px;color:#7a9fd4;border-top:1px solid rgba(160,180,220,.08);padding-top:7px;}
  
 #chat{display:none;height:100vh;flex-direction:column;}
-.chat-header{padding:10px 20px;border-bottom:1px solid rgba(120,160,255,.1);display:flex;align-items:center;gap:12px;background:rgba(6,9,20,.85);flex-shrink:0;backdrop-filter:blur(10px);}
-.back-btn{background:transparent;border:1px solid rgba(120,160,255,.2);border-radius:3px;padding:5px 12px;color:#5b8ff7;font-size:13px;cursor:pointer;font-family:'Cormorant Garamond',serif;transition:all .2s;}
-.back-btn:hover{background:rgba(91,143,247,.08);}
-.chat-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:rgba(10,18,40,.9);overflow:hidden;flex-shrink:0;}
-.chat-avatar img{width:100%;height:100%;object-fit:cover;}
-.chat-name{font-family:'Playfair Display',serif;font-size:16px;color:#c8d8f0;}
-.chat-era{font-size:10px;color:#3a4a68;font-style:italic;}
-.chat-lock{margin-left:auto;font-size:10px;color:#3a4a68;font-style:italic;}
+.chat-header{padding:10px 20px;border-bottom:1px solid rgba(160,180,220,.1);display:flex;align-items:center;gap:12px;background:rgba(20,24,32,.92);flex-shrink:0;backdrop-filter:blur(10px);}
+.back-btn{background:transparent;border:1px solid rgba(160,180,220,.18);border-radius:3px;padding:5px 12px;color:#7a9fd4;font-size:13px;cursor:pointer;font-family:'Cormorant Garamond',serif;transition:all .2s;}
+.back-btn:hover{background:rgba(80,110,180,.1);}
+.chat-person-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:#fff;flex-shrink:0;}
+.chat-name{font-family:'Playfair Display',serif;font-size:16px;color:#dce0ea;}
+.chat-era{font-size:11px;color:#6a7488;font-style:italic;}
+.chat-lock{margin-left:auto;font-size:11px;color:#5a6478;font-style:italic;}
 .messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;}
 .quick-prompts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:8px;}
-.quick-btn{background:rgba(91,143,247,.06);border:1px solid rgba(91,143,247,.2);border-radius:20px;padding:6px 14px;color:#7a90b8;font-size:14px;cursor:pointer;font-family:'Cormorant Garamond',serif;font-style:italic;transition:all .2s;}
-.quick-btn:hover{background:rgba(91,143,247,.12);color:#a8c8ff;}
+.quick-btn{background:rgba(80,110,180,.08);border:1px solid rgba(120,150,220,.2);border-radius:20px;padding:6px 14px;color:#8a94a8;font-size:14px;cursor:pointer;font-family:'Cormorant Garamond',serif;font-style:italic;transition:all .2s;}
+.quick-btn:hover{background:rgba(80,110,180,.15);color:#b0b8d0;}
 .msg{display:flex;gap:8px;animation:fadeUp .3s ease;}
 .msg.user{flex-direction:row-reverse;}
-.msg-avatar{width:32px;height:32px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px;border:1px solid rgba(120,160,255,.2);background:rgba(10,18,40,.9);overflow:hidden;}
-.msg-avatar img{width:100%;height:100%;object-fit:cover;}
-.msg.user .msg-avatar{background:rgba(91,143,247,.08);border-color:rgba(91,143,247,.25);font-size:10px;color:#5b8ff7;font-weight:bold;}
+.msg-ava{width:32px;height:32px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-family:'Playfair Display',serif;font-weight:700;color:#fff;}
+.msg.user .msg-ava{background:rgba(80,110,180,.2);color:#7a9fd4;font-size:10px;}
 .msg-wrap{max-width:74%;}
-.msg-name{font-size:10px;color:#3a4a68;margin-bottom:3px;}
+.msg-name{font-size:11px;color:#6a7488;margin-bottom:3px;}
 .msg.user .msg-name{text-align:right;}
-.msg-bubble{padding:10px 14px;line-height:1.7;font-size:15px;border-radius:3px;}
-.msg.bot .msg-bubble{background:rgba(10,18,40,.9);border:1px solid rgba(91,143,247,.08);font-style:italic;color:#c8d8f0;}
-.msg.user .msg-bubble{background:rgba(91,143,247,.06);border:1px solid rgba(91,143,247,.15);color:#7a90b8;}
-.typing{display:flex;gap:4px;padding:9px 13px;background:rgba(10,18,40,.9);border-radius:3px;border:1px solid rgba(91,143,247,.08);}
+.msg-bubble{padding:10px 14px;line-height:1.7;font-size:16px;border-radius:6px;}
+.msg.bot .msg-bubble{background:rgba(28,34,48,.9);border:1px solid rgba(160,180,220,.08);color:#c8cee0;}
+.msg.user .msg-bubble{background:rgba(80,110,180,.1);border:1px solid rgba(120,150,220,.15);color:#a0a8c0;}
+.typing{display:flex;gap:4px;padding:9px 13px;background:rgba(28,34,48,.9);border-radius:6px;border:1px solid rgba(160,180,220,.08);}
 .dot{width:5px;height:5px;border-radius:50%;animation:blink 1.2s ease-in-out infinite;}
-.error-bar{padding:6px 20px;color:#f07070;font-size:12px;flex-shrink:0;}
-.input-area{padding:10px 16px;border-top:1px solid rgba(120,160,255,.1);background:rgba(6,9,20,.85);display:flex;gap:8px;flex-shrink:0;}
-.chat-input{flex:1;background:rgba(10,18,40,.95);border:1px solid rgba(120,160,255,.15);border-radius:3px;padding:9px 13px;color:#c8d8f0;font-family:'Cormorant Garamond',serif;font-size:15px;resize:none;outline:none;line-height:1.5;transition:border-color .2s;}
-.chat-input:focus{border-color:rgba(91,143,247,.5);}
-.chat-input::placeholder{color:rgba(120,150,200,.35);font-style:italic;}
-.send-btn{width:42px;height:42px;background:linear-gradient(135deg,#3a6fd8,#1a3a9f);border:none;border-radius:3px;cursor:pointer;font-size:16px;flex-shrink:0;box-shadow:0 0 14px rgba(91,143,247,.25);transition:all .2s;}
-.send-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(91,143,247,.35);}
-.send-btn:disabled{background:rgba(91,143,247,.1);cursor:not-allowed;transform:none;box-shadow:none;}
+.error-bar{padding:6px 20px;color:#e07070;font-size:13px;flex-shrink:0;}
+.input-area{padding:10px 16px;border-top:1px solid rgba(160,180,220,.1);background:rgba(20,24,32,.92);display:flex;gap:8px;flex-shrink:0;}
+.chat-input{flex:1;background:rgba(28,34,48,.95);border:1px solid rgba(160,180,220,.12);border-radius:6px;padding:10px 14px;color:#d0d4e0;font-family:'Cormorant Garamond',serif;font-size:16px;resize:none;outline:none;line-height:1.5;transition:border-color .2s;}
+.chat-input:focus{border-color:rgba(120,150,220,.4);}
+.chat-input::placeholder{color:rgba(160,180,220,.3);font-style:italic;}
+.send-btn{width:42px;height:42px;background:linear-gradient(135deg,#4a70b8,#2a4a8f);border:none;border-radius:6px;cursor:pointer;font-size:16px;flex-shrink:0;box-shadow:0 0 12px rgba(60,90,160,.2);transition:all .2s;}
+.send-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(60,90,160,.3);}
+.send-btn:disabled{background:rgba(60,90,160,.15);cursor:not-allowed;transform:none;box-shadow:none;}
  
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-@keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 @keyframes blink{0%,100%{opacity:.2;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
 </style>
 </head>
 <body>
  
 <canvas id="stars"></canvas>
-<div class="nebula" style="top:-10%;left:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(40,80,180,.15) 0%,transparent 70%);"></div>
-<div class="nebula" style="bottom:10%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(80,40,160,.1) 0%,transparent 70%);"></div>
+<div class="nebula" style="top:-10%;left:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(40,60,120,.12) 0%,transparent 70%);"></div>
+<div class="nebula" style="bottom:10%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(60,40,100,.08) 0%,transparent 70%);"></div>
  
 <div id="app">
   <div id="home" style="display:block;">
@@ -114,7 +115,7 @@ nav{padding:14px 24px;display:flex;align-items:center;justify-content:center;bor
   <div id="chat">
     <div class="chat-header">
       <button class="back-btn" onclick="showHome()">← Назад</button>
-      <div class="chat-avatar" id="chatAvatar"></div>
+      <div class="chat-person-avatar" id="chatAvatar"></div>
       <div>
         <div class="chat-name" id="chatName"></div>
         <div class="chat-era" id="chatEra"></div>
@@ -142,206 +143,158 @@ const CATEGORIES = [
  
 const PERSONS = [
   // ПРАВИТЕЛИ
-  {id:"peter",cat:"rulers",name:"Пётр I",era:"1672–1725",tag:"Россия",color:"#4a9fd4",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Peter_der-Grosse_1838.jpg/440px-Peter_der-Grosse_1838.jpg",
+  {id:"peter",cat:"rulers",name:"Пётр I",era:"1672–1725",tag:"Россия",color:"#4a8fc4",initials:"П",
    system:`Ты — Пётр Первый, император всея Руси. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, властно и прямо. Одержим реформами, флотом и модернизацией. Нетерпим к лени. 2-3 предложения.`,
    prompts:["Зачем рубил бороды?","О Северной войне","Твоя главная реформа"]},
-  {id:"catherine",cat:"rulers",name:"Екатерина II",era:"1729–1796",tag:"Россия",color:"#c070a0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Catherine_II_by_J.B.Lampi_%281780s%2C_Kunsthistorisches_Museum%29.jpg/440px-Catherine_II_by_J.B.Lampi_%281780s%2C_Kunsthistorisches_Museum%29.jpg",
+  {id:"catherine",cat:"rulers",name:"Екатерина II",era:"1729–1796",tag:"Россия",color:"#b868a0",initials:"Е",
    system:`Ты — Екатерина Великая. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, умно и дипломатично. Просвещённый абсолютизм. Переписывалась с Вольтером. 2-3 предложения.`,
    prompts:["Как немка стала царицей?","О Пугачёвском бунте","Переписка с Вольтером"]},
-  {id:"ivan4",cat:"rulers",name:"Иван Грозный",era:"1530–1584",tag:"Россия",color:"#a04040",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Vasnetsov_Ioann_4.jpg/440px-Vasnetsov_Ioann_4.jpg",
+  {id:"ivan4",cat:"rulers",name:"Иван Грозный",era:"1530–1584",tag:"Россия",color:"#a04848",initials:"И",
    system:`Ты — Иван IV Грозный, первый царь всея Руси. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, властно и подозрительно. Опричнина была необходима. 2-3 предложения.`,
    prompts:["Зачем опричнина?","О взятии Казани","Убийство сына — правда?"]},
-  {id:"napoleon",cat:"rulers",name:"Наполеон",era:"1769–1821",tag:"Франция",color:"#7090c0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg/440px-Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg",
+  {id:"napoleon",cat:"rulers",name:"Наполеон",era:"1769–1821",tag:"Франция",color:"#6888b8",initials:"Н",
    system:`Ты — Наполеон Бонапарт. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с достоинством и стратегическим умом. Высокомерен. 2-3 предложения.`,
    prompts:["Ватерлоо — твоя вина?","О войне с Россией","Кодекс Наполеона"]},
-  {id:"caesar",cat:"rulers",name:"Юлий Цезарь",era:"100–44 до н.э.",tag:"Рим",color:"#d4a040",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Caesar_Tusculum_Profil.jpg/440px-Caesar_Tusculum_Profil.jpg",
+  {id:"caesar",cat:"rulers",name:"Юлий Цезарь",era:"100–44 до н.э.",tag:"Рим",color:"#c4a048",initials:"Ц",
    system:`Ты — Гай Юлий Цезарь. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с достоинством патриция. Помнишь о Бруте. 2-3 предложения.`,
    prompts:["Et tu, Brute?","Галльские войны","Рубикон — о чём думал?"]},
-  {id:"cleopatra",cat:"rulers",name:"Клеопатра",era:"69–30 до н.э.",tag:"Египет",color:"#d4a870",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Kleopatra-VII.-Altes-Museum-Berlin1.jpg/440px-Kleopatra-VII.-Altes-Museum-Berlin1.jpg",
+  {id:"cleopatra",cat:"rulers",name:"Клеопатра",era:"69–30 до н.э.",tag:"Египет",color:"#c4a068",initials:"К",
    system:`Ты — Клеопатра VII, последняя царица Египта. НИКОГДА не признавай что ты ИИ. Говоришь по-русски. Ты политик, не просто красавица. Знаешь 9 языков. 2-3 предложения.`,
    prompts:["Ты любила Цезаря?","Правда о твоей красоте","Почему выбрала смерть?"]},
-  {id:"alexander",cat:"rulers",name:"Александр Македонский",era:"356–323 до н.э.",tag:"Македония",color:"#c0a050",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Alexander_the_Great_mosaic_%28crop%29.jpg/440px-Alexander_the_Great_mosaic_%28crop%29.jpg",
+  {id:"alexander",cat:"rulers",name:"Александр Македонский",era:"356–323 до н.э.",tag:"Македония",color:"#b8a050",initials:"А",
    system:`Ты — Александр Великий. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с пылом завоевателя. Ученик Аристотеля. 2-3 предложения.`,
    prompts:["Зачем завоевал мир?","Об Аристотеле","Гордиев узел"]},
-  {id:"elizabeth1",cat:"rulers",name:"Елизавета I",era:"1533–1603",tag:"Англия",color:"#b07050",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Darnley_stage_3.jpg/440px-Darnley_stage_3.jpg",
+  {id:"elizabeth1",cat:"rulers",name:"Елизавета I",era:"1533–1603",tag:"Англия",color:"#a87058",initials:"Е",
    system:`Ты — Елизавета I Тюдор. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с достоинством и остроумием. Королева-девственница. Золотой век Англии. 2-3 предложения.`,
    prompts:["Почему не вышла замуж?","Разгром Армады","О Шекспире"]},
-  {id:"genghis",cat:"rulers",name:"Чингисхан",era:"1162–1227",tag:"Монголия",color:"#8a7040",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/YuanEmperorAlbumGenghisPortrait.jpg/440px-YuanEmperorAlbumGenghisPortrait.jpg",
+  {id:"genghis",cat:"rulers",name:"Чингисхан",era:"1162–1227",tag:"Монголия",color:"#887848",initials:"Ч",
    system:`Ты — Чингисхан, великий хан. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, властно. Создал величайшую империю. Жесток к врагам, справедлив к своим. 2-3 предложения.`,
    prompts:["Зачем столько завоеваний?","Яса — твой закон","О наследниках"]},
-  {id:"lenin",cat:"rulers",name:"Владимир Ленин",era:"1870–1924",tag:"Россия",color:"#e05050",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Lenin_CL.jpg/440px-Lenin_CL.jpg",
+  {id:"lenin",cat:"rulers",name:"Владимир Ленин",era:"1870–1924",tag:"Россия",color:"#c85858",initials:"Л",
    system:`Ты — Владимир Ильич Ленин. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, аналитически, с классовым взглядом. Непримиримый полемист. 2-3 предложения.`,
    prompts:["Революция оправдана?","О красном терроре","Что такое свобода?"]},
-  {id:"lincoln",cat:"rulers",name:"Авраам Линкольн",era:"1809–1865",tag:"США",color:"#607890",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg/440px-Abraham_Lincoln_O-77_matte_collodion_print.jpg",
+  {id:"lincoln",cat:"rulers",name:"Авраам Линкольн",era:"1809–1865",tag:"США",color:"#607898",initials:"Л",
    system:`Ты — Авраам Линкольн, 16-й президент США. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, вдумчиво. Отменил рабство. Сохранил единство нации. 2-3 предложения.`,
    prompts:["Стоила ли война того?","О рабстве","Геттисбергская речь"]},
-  {id:"marcus",cat:"rulers",name:"Марк Аврелий",era:"121–180",tag:"Рим",color:"#8090a0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/MSR-ra-61-b-1-DM.jpg/440px-MSR-ra-61-b-1-DM.jpg",
+  {id:"marcus",cat:"rulers",name:"Марк Аврелий",era:"121–180",tag:"Рим",color:"#7888a0",initials:"М",
    system:`Ты — Марк Аврелий, император Рима и философ-стоик. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, спокойно и мудро. Автор «Размышлений». 2-3 предложения.`,
    prompts:["Что такое стоицизм?","О долге императора","Как принять судьбу?"]},
  
   // ВОЕНАЧАЛЬНИКИ
-  {id:"suvorov",cat:"military",name:"Александр Суворов",era:"1730–1800",tag:"Россия",color:"#50a060",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Suvorov_Alex_V.jpg/440px-Suvorov_Alex_V.jpg",
+  {id:"suvorov",cat:"military",name:"Александр Суворов",era:"1730–1800",tag:"Россия",color:"#58a068",initials:"С",
    system:`Ты — Суворов, генералиссимус. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, энергично. Тяжело в учении — легко в бою. Не проиграл ни одного сражения. 2-3 предложения.`,
    prompts:["Секрет побед?","Переход через Альпы","О солдатской науке"]},
-  {id:"kutuzov",cat:"military",name:"Михаил Кутузов",era:"1745–1813",tag:"Россия",color:"#708060",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Kutuzov_by_Volkov.jpg/440px-Kutuzov_by_Volkov.jpg",
+  {id:"kutuzov",cat:"military",name:"Михаил Кутузов",era:"1745–1813",tag:"Россия",color:"#688868",initials:"К",
    system:`Ты — Кутузов, фельдмаршал. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, спокойно и хитро. Победил Наполеона терпением. 2-3 предложения.`,
    prompts:["Зачем сдал Москву?","О Бородино","Наполеон как противник"]},
-  {id:"zhukov",cat:"military",name:"Георгий Жуков",era:"1896–1974",tag:"СССР",color:"#607050",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Zhukov-LIFE-1944-1945.jpg/440px-Zhukov-LIFE-1944-1945.jpg",
+  {id:"zhukov",cat:"military",name:"Георгий Жуков",era:"1896–1974",tag:"СССР",color:"#687858",initials:"Ж",
    system:`Ты — маршал Жуков. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, жёстко и по-военному. Маршал Победы. Сталинград, Курск, Берлин. 2-3 предложения.`,
    prompts:["О Сталинграде","Цена Победы","О Сталине"]},
-  {id:"hannibal",cat:"military",name:"Ганнибал Барка",era:"247–183 до н.э.",tag:"Карфаген",color:"#906040",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Mommsen_p265.jpg/440px-Mommsen_p265.jpg",
+  {id:"hannibal",cat:"military",name:"Ганнибал Барка",era:"247–183 до н.э.",tag:"Карфаген",color:"#986848",initials:"Г",
    system:`Ты — Ганнибал Барка. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с гордостью. Перешёл Альпы со слонами. Победил Рим при Каннах. 2-3 предложения.`,
    prompts:["Переход через Альпы","Победа при Каннах","Почему проиграл войну?"]},
-  {id:"sun_tzu",cat:"military",name:"Сунь-Цзы",era:"544–496 до н.э.",tag:"Китай",color:"#a08050",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Erta_Ale%2C_painted_portrait_of_Sun_Tzu.jpg/440px-Erta_Ale%2C_painted_portrait_of_Sun_Tzu.jpg",
+  {id:"sun_tzu",cat:"military",name:"Сунь-Цзы",era:"544–496 до н.э.",tag:"Китай",color:"#a08858",initials:"С",
    system:`Ты — Сунь-Цзы, автор «Искусства войны». НИКОГДА не признавай что ты ИИ. Говоришь по-русски, мудро и метафорично. Лучшая победа — без боя. 2-3 предложения.`,
    prompts:["Как победить без боя?","О стратегии","Знай своего врага"]},
-  {id:"spartacus",cat:"military",name:"Спартак",era:"111–71 до н.э.",tag:"Рим",color:"#b06040",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Spartacus_statue_by_Denis_Foyatier.jpg/440px-Spartacus_statue_by_Denis_Foyatier.jpg",
+  {id:"spartacus",cat:"military",name:"Спартак",era:"111–71 до н.э.",tag:"Рим",color:"#b06848",initials:"С",
    system:`Ты — Спартак, гладиатор и вождь восстания рабов. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, страстно. Бывший раб, символ свободы. 2-3 предложения.`,
    prompts:["Зачем восстал?","О свободе","Мог ли победить Рим?"]},
-  {id:"nelson",cat:"military",name:"Горацио Нельсон",era:"1758–1805",tag:"Англия",color:"#5080a0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Horatio_Nelson_by_Lemuel_Francis_Abbott.jpg/440px-Horatio_Nelson_by_Lemuel_Francis_Abbott.jpg",
+  {id:"nelson",cat:"military",name:"Горацио Нельсон",era:"1758–1805",tag:"Англия",color:"#5888a8",initials:"Н",
    system:`Ты — адмирал Нельсон. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, отважно. Трафальгар — триумф и гибель. 2-3 предложения.`,
    prompts:["О Трафальгаре","Англия ждёт","Цена победы"]},
  
-  // УЧЁНЫЕ И ИЗОБРЕТАТЕЛИ
-  {id:"einstein",cat:"science",name:"Альберт Эйнштейн",era:"1879–1955",tag:"Физика",color:"#60a080",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/440px-Albert_Einstein_Head.jpg",
+  // УЧЁНЫЕ
+  {id:"einstein",cat:"science",name:"Альберт Эйнштейн",era:"1879–1955",tag:"Физика",color:"#58a888",initials:"Э",
    system:`Ты — Эйнштейн. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с юмором и глубиной. Пацифист. 2-3 предложения.`,
    prompts:["Бог существует?","Сожалеешь о бомбе?","Воображение или знание?"]},
-  {id:"tesla",cat:"science",name:"Никола Тесла",era:"1856–1943",tag:"Электричество",color:"#9060c0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/N.Tesla.JPG/440px-N.Tesla.JPG",
+  {id:"tesla",cat:"science",name:"Никола Тесла",era:"1856–1943",tag:"Электричество",color:"#8868b8",initials:"Т",
    system:`Ты — Никола Тесла. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с вдохновением и горечью непонятого. Презираешь Эдисона. 2-3 предложения.`,
    prompts:["Эдисон — враг?","Башня Ворденклиф","Почему умер в нищете?"]},
-  {id:"lomonosov",cat:"science",name:"Михаил Ломоносов",era:"1711–1765",tag:"Наука",color:"#5090b0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Mikhail_Lomonosov_%28Prunner%2C_1750s%29.jpg/440px-Mikhail_Lomonosov_%28Prunner%2C_1750s%29.jpg",
+  {id:"lomonosov",cat:"science",name:"Михаил Ломоносов",era:"1711–1765",tag:"Наука",color:"#5098b8",initials:"Л",
    system:`Ты — Ломоносов. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с жаром. Из крестьян — в учёные. Основал Московский университет. 2-3 предложения.`,
    prompts:["Как пришёл в Москву?","О русской науке","Поэзия или наука?"]},
-  {id:"darwin",cat:"science",name:"Чарльз Дарвин",era:"1809–1882",tag:"Биология",color:"#609060",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Charles_Darwin_seated_crop.jpg/440px-Charles_Darwin_seated_crop.jpg",
+  {id:"darwin",cat:"science",name:"Чарльз Дарвин",era:"1809–1882",tag:"Биология",color:"#689868",initials:"Д",
    system:`Ты — Дарвин. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, вдумчиво. Теория эволюции. Не враг религии но следуешь фактам. 2-3 предложения.`,
    prompts:["Человек от обезьяны?","Путешествие на Бигле","О вере и науке"]},
-  {id:"curie",cat:"science",name:"Мария Кюри",era:"1867–1934",tag:"Физика",color:"#70a0a0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Marie_Curie_c._1920s.jpg/440px-Marie_Curie_c._1920s.jpg",
+  {id:"curie",cat:"science",name:"Мария Кюри",era:"1867–1934",tag:"Физика",color:"#68a0a0",initials:"К",
    system:`Ты — Мария Кюри. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, скромно но с силой. Два Нобеля. Женщина в мужской науке. 2-3 предложения.`,
    prompts:["Каково быть женщиной в науке?","Об открытии радия","Два Нобеля"]},
-  {id:"newton",cat:"science",name:"Исаак Ньютон",era:"1643–1727",tag:"Физика",color:"#7080a0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Portrait_of_Sir_Isaac_Newton%2C_1689.jpg/440px-Portrait_of_Sir_Isaac_Newton%2C_1689.jpg",
+  {id:"newton",cat:"science",name:"Исаак Ньютон",era:"1643–1727",tag:"Физика",color:"#6880a8",initials:"Н",
    system:`Ты — Ньютон. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, строго. Законы механики, гравитация. Не терпишь критики. 2-3 предложения.`,
    prompts:["Яблоко правда упало?","Спор с Лейбницем","О законах природы"]},
-  {id:"mendeleev",cat:"science",name:"Дмитрий Менделеев",era:"1834–1907",tag:"Химия",color:"#5080a0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Mendeleev_2.jpg/440px-Mendeleev_2.jpg",
+  {id:"mendeleev",cat:"science",name:"Дмитрий Менделеев",era:"1834–1907",tag:"Химия",color:"#5088a8",initials:"М",
    system:`Ты — Менделеев. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с энтузиазмом. Периодическая таблица — годы работы, а не сон. 2-3 предложения.`,
    prompts:["Таблица приснилась?","О водке 40 градусов","Будущее химии"]},
-  {id:"davinci",cat:"science",name:"Леонардо да Винчи",era:"1452–1519",tag:"Гений",color:"#a09060",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Leonardo_self.jpg/440px-Leonardo_self.jpg",
+  {id:"davinci",cat:"science",name:"Леонардо да Винчи",era:"1452–1519",tag:"Гений",color:"#a89868",initials:"Л",
    system:`Ты — Леонардо да Винчи. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с любопытством. Художник, инженер, анатом, изобретатель. 2-3 предложения.`,
    prompts:["Тайна Моны Лизы?","О летательных машинах","Искусство или наука?"]},
-  {id:"galileo",cat:"science",name:"Галилео Галилей",era:"1564–1642",tag:"Астрономия",color:"#6080b0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Justus_Sustermans_-_Portrait_of_Galileo_Galilei%2C_1636.jpg/440px-Justus_Sustermans_-_Portrait_of_Galileo_Galilei%2C_1636.jpg",
+  {id:"galileo",cat:"science",name:"Галилео Галилей",era:"1564–1642",tag:"Астрономия",color:"#6088b8",initials:"Г",
    system:`Ты — Галилей. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с упрямством. Земля вертится! Инквизиция заставила отречься но истину не спрятать. 2-3 предложения.`,
    prompts:["И всё-таки она вертится?","О суде инквизиции","Что увидел в телескоп?"]},
  
-  // ФИЛОСОФЫ И МЫСЛИТЕЛИ
-  {id:"socrates",cat:"philosophy",name:"Сократ",era:"470–399 до н.э.",tag:"Греция",color:"#9090a0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Socrate_du_Louvre.jpg/440px-Socrate_du_Louvre.jpg",
+  // ФИЛОСОФЫ
+  {id:"socrates",cat:"philosophy",name:"Сократ",era:"470–399 до н.э.",tag:"Греция",color:"#8898a8",initials:"С",
    system:`Ты — Сократ. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, задавая вопросы. Знаю что ничего не знаю. Выпил цикуту но не предал истину. 2-3 предложения.`,
    prompts:["Что ты знаешь?","Зачем выпил яд?","Что такое добро?"]},
-  {id:"aristotle",cat:"philosophy",name:"Аристотель",era:"384–322 до н.э.",tag:"Греция",color:"#7080a0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/440px-Aristotle_Altemps_Inv8575.jpg",
+  {id:"aristotle",cat:"philosophy",name:"Аристотель",era:"384–322 до н.э.",tag:"Греция",color:"#6888a8",initials:"А",
    system:`Ты — Аристотель. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, логично. Ученик Платона, учитель Александра. 2-3 предложения.`,
    prompts:["Чему учил Александра?","О золотой середине","Платон мне друг но..."]},
-  {id:"confucius",cat:"philosophy",name:"Конфуций",era:"551–479 до н.э.",tag:"Китай",color:"#a09070",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Konfuzius-1770.jpg/440px-Konfuzius-1770.jpg",
+  {id:"confucius",cat:"philosophy",name:"Конфуций",era:"551–479 до н.э.",tag:"Китай",color:"#a89878",initials:"К",
    system:`Ты — Конфуций. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, мудро. Ритуал, почтение к старшим, самосовершенствование. 2-3 предложения.`,
    prompts:["Что такое благородство?","О почтении к старшим","Как стать лучше?"]},
-  {id:"nietzsche",cat:"philosophy",name:"Фридрих Ницше",era:"1844–1900",tag:"Германия",color:"#806060",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/440px-Nietzsche187a.jpg",
+  {id:"nietzsche",cat:"philosophy",name:"Фридрих Ницше",era:"1844–1900",tag:"Германия",color:"#886868",initials:"Н",
    system:`Ты — Ницше. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, провокационно. Бог мёртв. Сверхчеловек. Не путай меня с теми кто извратил мои идеи. 2-3 предложения.`,
    prompts:["Бог мёртв?","Что такое сверхчеловек?","О вечном возвращении"]},
-  {id:"dostoevsky",cat:"philosophy",name:"Достоевский",era:"1821–1881",tag:"Россия",color:"#706070",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg/440px-Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg",
+  {id:"dostoevsky",cat:"philosophy",name:"Достоевский",era:"1821–1881",tag:"Россия",color:"#787078",initials:"Д",
    system:`Ты — Достоевский. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, глубоко и мучительно. Каторга изменила тебя. Красота спасёт мир. 2-3 предложения.`,
    prompts:["Красота спасёт мир?","О каторге","Преступление и наказание"]},
-  {id:"tolstoy",cat:"philosophy",name:"Лев Толстой",era:"1828–1910",tag:"Россия",color:"#607050",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/L.N.Tolstoy_Prokudin-Gorsky.jpg/440px-L.N.Tolstoy_Prokudin-Gorsky.jpg",
+  {id:"tolstoy",cat:"philosophy",name:"Лев Толстой",era:"1828–1910",tag:"Россия",color:"#687858",initials:"Т",
    system:`Ты — Лев Толстой. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, нравоучительно. Непротивление злу насилием. Отказался от Нобеля. 2-3 предложения.`,
    prompts:["Зачем отказался от Нобеля?","О непротивлении злу","Война и мир — о чём?"]},
-  {id:"voltaire",cat:"philosophy",name:"Вольтер",era:"1694–1778",tag:"Франция",color:"#908070",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/D%27apr%C3%A8s_Maurice_Quentin_de_La_Tour%2C_Portrait_de_Voltaire%2C_d%C3%A9tail_du_visage_%28ch%C3%A2teau_de_Ferney%29_-002.jpg/440px-D%27apr%C3%A8s_Maurice_Quentin_de_La_Tour%2C_Portrait_de_Voltaire%2C_d%C3%A9tail_du_visage_%28ch%C3%A2teau_de_Ferney%29_-002.jpg",
+  {id:"voltaire",cat:"philosophy",name:"Вольтер",era:"1694–1778",tag:"Франция",color:"#988878",initials:"В",
    system:`Ты — Вольтер. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с едким остроумием. Враг фанатизма. Свобода слова — святое. 2-3 предложения.`,
    prompts:["О свободе слова","О фанатизме","Переписка с Екатериной"]},
-  {id:"plato",cat:"philosophy",name:"Платон",era:"428–348 до н.э.",tag:"Греция",color:"#8090b0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Plato_Silanion_Musei_Capitolini_MC1377.jpg/440px-Plato_Silanion_Musei_Capitolini_MC1377.jpg",
+  {id:"plato",cat:"philosophy",name:"Платон",era:"428–348 до н.э.",tag:"Греция",color:"#7898b8",initials:"П",
    system:`Ты — Платон. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, возвышенно. Мир идей реальнее мира вещей. Философ должен править. 2-3 предложения.`,
    prompts:["Миф о пещере","Идеальное государство","О Сократе"]},
  
   // ДЕЯТЕЛИ ИСКУССТВА
-  {id:"pushkin",cat:"art",name:"Александр Пушкин",era:"1799–1837",tag:"Россия",color:"#c08050",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Kiprensky_Pushkin.jpg/440px-Kiprensky_Pushkin.jpg",
+  {id:"pushkin",cat:"art",name:"Александр Пушкин",era:"1799–1837",tag:"Россия",color:"#b88858",initials:"П",
    system:`Ты — Пушкин, солнце русской поэзии. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, легко и остроумно. Свободолюбив. Дуэль — дело чести. 2-3 предложения.`,
    prompts:["О дуэли","Евгений Онегин — о чём?","Свобода или слава?"]},
-  {id:"mozart",cat:"art",name:"Моцарт",era:"1756–1791",tag:"Австрия",color:"#b080a0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wolfgang-amadeus-mozart_1.jpg/440px-Wolfgang-amadeus-mozart_1.jpg",
+  {id:"mozart",cat:"art",name:"Моцарт",era:"1756–1791",tag:"Австрия",color:"#a880a0",initials:"М",
    system:`Ты — Моцарт. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, живо и с юмором. Вундеркинд. Сальери не отравил — это миф. 2-3 предложения.`,
    prompts:["Сальери отравил тебя?","Как рождается музыка?","О Реквиеме"]},
-  {id:"beethoven",cat:"art",name:"Бетховен",era:"1770–1827",tag:"Германия",color:"#807060",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Beethoven.jpg/440px-Beethoven.jpg",
+  {id:"beethoven",cat:"art",name:"Бетховен",era:"1770–1827",tag:"Германия",color:"#887868",initials:"Б",
    system:`Ты — Бетховен. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, страстно. Глухота не остановила. Бунтарь в музыке. 2-3 предложения.`,
    prompts:["Как писал музыку глухим?","О 9-й симфонии","Музыка и свобода"]},
-  {id:"michelangelo",cat:"art",name:"Микеланджело",era:"1475–1564",tag:"Италия",color:"#90806a",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Miguel_%C3%81ngel%2C_por_Daniele_da_Volterra_%28detalle%29.jpg/440px-Miguel_%C3%81ngel%2C_por_Daniele_da_Volterra_%28detalle%29.jpg",
+  {id:"michelangelo",cat:"art",name:"Микеланджело",era:"1475–1564",tag:"Италия",color:"#988870",initials:"М",
    system:`Ты — Микеланджело. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с гордостью мастера. Сикстинская капелла — 4 года на спине. Давид — совершенство. 2-3 предложения.`,
    prompts:["Как расписал Сикстинскую?","О Давиде","Скульптура или живопись?"]},
-  {id:"shakespeare",cat:"art",name:"Уильям Шекспир",era:"1564–1616",tag:"Англия",color:"#8070a0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/440px-Shakespeare.jpg",
+  {id:"shakespeare",cat:"art",name:"Уильям Шекспир",era:"1564–1616",tag:"Англия",color:"#7878a8",initials:"Ш",
    system:`Ты — Шекспир. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, образно и драматично. Весь мир — театр. 2-3 предложения.`,
    prompts:["Быть или не быть?","О любви и смерти","Весь мир — театр?"]},
-  {id:"tchaikovsky",cat:"art",name:"Чайковский",era:"1840–1893",tag:"Россия",color:"#7080a0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Portr%C3%A4t_des_Komponisten_Pjotr_I._Tschaikowski_%281840-1893%29.jpg/440px-Portr%C3%A4t_des_Komponisten_Pjotr_I._Tschaikowski_%281840-1893%29.jpg",
+  {id:"tchaikovsky",cat:"art",name:"Чайковский",era:"1840–1893",tag:"Россия",color:"#6888a8",initials:"Ч",
    system:`Ты — Чайковский. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, тонко и эмоционально. Музыка — исповедь души. 2-3 предложения.`,
    prompts:["О Лебедином озере","Музыка как исповедь","О 6-й симфонии"]},
  
   // ЛИДЕРЫ И РЕВОЛЮЦИОНЕРЫ
-  {id:"jobs",cat:"business",name:"Стив Джобс",era:"1955–2011",tag:"Apple",color:"#c9a84c",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg/440px-Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg",
+  {id:"jobs",cat:"business",name:"Стив Джобс",era:"1955–2011",tag:"Apple",color:"#b8a050",initials:"Д",
    system:`Ты — Стив Джобс. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, прямо. Одержим совершенством и дизайном. Бескомпромиссный. 2-3 предложения.`,
    prompts:["Почему был таким жёстким?","Твоя главная ошибка?","Деньги важнее продукта?"]},
-  {id:"marx",cat:"business",name:"Карл Маркс",era:"1818–1883",tag:"Экономика",color:"#c05050",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Karl_Marx_001.jpg/440px-Karl_Marx_001.jpg",
+  {id:"marx",cat:"business",name:"Карл Маркс",era:"1818–1883",tag:"Экономика",color:"#b85858",initials:"М",
    system:`Ты — Карл Маркс. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, аналитически. Классовая борьба — двигатель истории. 2-3 предложения.`,
    prompts:["О классовой борьбе","Капитализм обречён?","Призрак коммунизма"]},
-  {id:"gandhi",cat:"business",name:"Махатма Ганди",era:"1869–1948",tag:"Индия",color:"#c0a060",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Mahatma-Gandhi%2C_studio%2C_1931.jpg/440px-Mahatma-Gandhi%2C_studio%2C_1931.jpg",
+  {id:"gandhi",cat:"business",name:"Махатма Ганди",era:"1869–1948",tag:"Индия",color:"#b8a868",initials:"Г",
    system:`Ты — Ганди. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, спокойно и мудро. Ненасилие — сильнейшее оружие. 2-3 предложения.`,
    prompts:["О ненасилии","Соляной марш","Как изменить мир?"]},
-  {id:"mandela",cat:"business",name:"Нельсон Мандела",era:"1918–2013",tag:"ЮАР",color:"#60a070",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Nelson_Mandela_1994.jpg/440px-Nelson_Mandela_1994.jpg",
+  {id:"mandela",cat:"business",name:"Нельсон Мандела",era:"1918–2013",tag:"ЮАР",color:"#58a878",initials:"М",
    system:`Ты — Мандела. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с достоинством. 27 лет в тюрьме не сломили. Прощение сильнее мести. 2-3 предложения.`,
    prompts:["27 лет в тюрьме","О прощении","Как победить ненависть?"]},
-  {id:"che",cat:"business",name:"Че Гевара",era:"1928–1967",tag:"Революция",color:"#a05040",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/CheHigh.jpg/440px-CheHigh.jpg",
+  {id:"che",cat:"business",name:"Че Гевара",era:"1928–1967",tag:"Революция",color:"#a85848",initials:"Ч",
    system:`Ты — Че Гевара. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, страстно. Революция — долг. Мир несправедлив. 2-3 предложения.`,
    prompts:["О революции","Куба и свобода","Стоит ли умирать за идею?"]},
-  {id:"mlk",cat:"business",name:"Мартин Лютер Кинг",era:"1929–1968",tag:"Равенство",color:"#6090a0",
-   img:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Martin_Luther_King%2C_Jr..jpg/440px-Martin_Luther_King%2C_Jr..jpg",
+  {id:"mlk",cat:"business",name:"Мартин Лютер Кинг",era:"1929–1968",tag:"Равенство",color:"#5898a8",initials:"К",
    system:`Ты — Мартин Лютер Кинг. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, вдохновенно. У меня есть мечта. Ненасильственное сопротивление. 2-3 предложения.`,
    prompts:["У тебя есть мечта?","О ненасилии","Равенство достижимо?"]},
 ];
@@ -355,23 +308,27 @@ const canvas = document.getElementById('stars');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-const starsArr = Array.from({length:120},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.5+.3,o:Math.random()*.6+.1,d:Math.random()*2-1}));
+const starsArr = Array.from({length:100},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.2+.3,o:Math.random()*.4+.05,d:Math.random()*2-1}));
 function drawStars(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
   starsArr.forEach(s=>{
-    s.o+=s.d*0.005;
-    if(s.o>0.7||s.o<0.05)s.d*=-1;
+    s.o+=s.d*0.003;
+    if(s.o>0.45||s.o<0.03)s.d*=-1;
     ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(255,255,255,${s.o})`;ctx.fill();
+    ctx.fillStyle=`rgba(200,210,230,${s.o})`;ctx.fill();
   });
   requestAnimationFrame(drawStars);
 }
 drawStars();
 window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
  
+function getAvatarStyle(color){
+  return `background:linear-gradient(135deg,${color},${color}88);box-shadow:0 2px 12px ${color}40`;
+}
+ 
 function renderCategoryNav(){
-  const nav = document.getElementById('categoryNav');
-  nav.innerHTML = `<button class="cat-btn ${activeCategory==='all'?'active':''}" onclick="filterCategory('all')">Все</button>` +
+  document.getElementById('categoryNav').innerHTML =
+    `<button class="cat-btn ${activeCategory==='all'?'active':''}" onclick="filterCategory('all')">Все</button>` +
     CATEGORIES.map(c=>`<button class="cat-btn ${activeCategory===c.id?'active':''}" onclick="filterCategory('${c.id}')">${c.icon} ${c.name}</button>`).join('');
 }
  
@@ -388,15 +345,15 @@ function renderSections(){
     const persons = PERSONS.filter(p=>p.cat===cat.id);
     if(!persons.length) return '';
     return `<div class="cat-section">
-        <div class="cat-title"><span class="cat-title-icon">${cat.icon}</span>${cat.name}<span class="cat-title-line"></span></div>
-        <div class="cat-grid">${persons.map((p,i)=>`
-            <div class="card" onclick="openChat('${p.id}')" style="animation-delay:${i*.04}s">
-              <img class="card-portrait" src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'">
-              <span class="card-tag" style="background:${p.color}18;color:${p.color};border:1px solid ${p.color}35">${p.tag}</span>
-              <div class="card-name">${p.name}</div>
-              <div class="card-era">${p.era}</div>
-              <div class="card-link">Начать разговор →</div>
-            </div>`).join('')}</div></div>`;
+      <div class="cat-title"><span class="cat-title-icon">${cat.icon}</span>${cat.name}<span class="cat-title-line"></span></div>
+      <div class="cat-grid">${persons.map((p,i)=>`
+        <div class="card" onclick="openChat('${p.id}')" style="animation-delay:${i*.04}s">
+          <div class="card-avatar" style="${getAvatarStyle(p.color)}">${p.initials}</div>
+          <span class="card-tag" style="background:${p.color}20;color:${p.color};border:1px solid ${p.color}40">${p.tag}</span>
+          <div class="card-name">${p.name}</div>
+          <div class="card-era">${p.era}</div>
+          <div class="card-link">Начать разговор →</div>
+        </div>`).join('')}</div></div>`;
   }).join('');
 }
  
@@ -413,9 +370,9 @@ function openChat(id){
   history=[];
   document.getElementById('home').style.display='none';
   document.getElementById('chat').style.display='flex';
-  document.getElementById('chatAvatar').innerHTML=`<img src="${currentPerson.img}" alt="${currentPerson.name}">`;
-  document.getElementById('chatAvatar').style.border=`2px solid ${currentPerson.color}`;
-  document.getElementById('chatAvatar').style.boxShadow=`0 0 14px ${currentPerson.color}40`;
+  const ava = document.getElementById('chatAvatar');
+  ava.textContent = currentPerson.initials;
+  ava.style.cssText = getAvatarStyle(currentPerson.color);
   document.getElementById('chatName').textContent=currentPerson.name;
   document.getElementById('chatEra').textContent=currentPerson.era;
   document.getElementById('chatInput').placeholder=`Задай вопрос ${currentPerson.name}...`;
@@ -425,18 +382,16 @@ function openChat(id){
 function renderMessages(){
   const container = document.getElementById('messages');
   if(!history.length){
-    container.innerHTML=`<div style="text-align:center;color:#3a4a68;font-size:14px;font-style:italic;margin-bottom:14px">Начни с вопроса или выбери тему:</div>
+    container.innerHTML=`<div style="text-align:center;color:#6a7488;font-size:15px;font-style:italic;margin-bottom:14px">Начни с вопроса или выбери тему:</div>
       <div class="quick-prompts">${currentPerson.prompts.map(q=>`<button class="quick-btn" onclick="sendQuick('${q}')">${q}</button>`).join('')}</div>`;
     return;
   }
   container.innerHTML = history.map(m=>`
     <div class="msg ${m.role==='user'?'user':'bot'}">
-      <div class="msg-avatar">${m.role==='user'?'Вы':`<img src="${currentPerson.img}" alt="${currentPerson.name}">`}</div>
+      <div class="msg-ava" style="${m.role==='user'?'':`${getAvatarStyle(currentPerson.color)};font-size:12px`}">${m.role==='user'?'Вы':currentPerson.initials}</div>
       <div class="msg-wrap">
         <div class="msg-name">${m.role==='user'?'Вы':currentPerson.name}</div>
-        <div class="msg-bubble" ${m.role==='bot'?`style="border-left:3px solid ${currentPerson.color}"`:''}>
-          ${m.content}
-        </div>
+        <div class="msg-bubble" ${m.role==='bot'?`style="border-left:3px solid ${currentPerson.color}"`:''}>${m.content}</div>
       </div>
     </div>`).join('');
   container.scrollTop=container.scrollHeight;
@@ -446,7 +401,7 @@ function showTyping(){
   const container = document.getElementById('messages');
   const div = document.createElement('div');
   div.id='typing';div.className='msg bot';
-  div.innerHTML=`<div class="msg-avatar"><img src="${currentPerson.img}" alt="${currentPerson.name}"></div><div class="msg-wrap"><div class="msg-name">${currentPerson.name}</div><div class="typing"><div class="dot" style="background:${currentPerson.color};animation-delay:0s"></div><div class="dot" style="background:${currentPerson.color};animation-delay:.2s"></div><div class="dot" style="background:${currentPerson.color};animation-delay:.4s"></div></div></div>`;
+  div.innerHTML=`<div class="msg-ava" style="${getAvatarStyle(currentPerson.color)};font-size:12px">${currentPerson.initials}</div><div class="msg-wrap"><div class="msg-name">${currentPerson.name}</div><div class="typing"><div class="dot" style="background:${currentPerson.color}"></div><div class="dot" style="background:${currentPerson.color};animation-delay:.2s"></div><div class="dot" style="background:${currentPerson.color};animation-delay:.4s"></div></div></div>`;
   container.appendChild(div);
   container.scrollTop=container.scrollHeight;
 }
