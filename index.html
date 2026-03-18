@@ -495,21 +495,47 @@ async function sendMessage(){
   try{
     const res=await fetch("https://voicehistory-api.pavelsovchenko29462.workers.dev",{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'anthropic/claude-sonnet-4.6',messages:[
+      body:JSON.stringify({model:'anthropic/claude-sonnet-4.6',stream:true,messages:[
         {role:'system',content:currentPerson.system},
         ...history.map(m=>({role:m.role==='bot'?'assistant':m.role,content:m.content}))
       ]})
     });
-    const data=await res.json();
-    if(data.error)throw new Error(data.error.message);
-    history.push({role:'bot',content:data.choices?.[0]?.message?.content||'...'});
+    if(!res.ok){const err=await res.json();throw new Error(err.error?.message||'Ошибка сервера');}
+    const t=document.getElementById('typing');if(t)t.remove();
+    history.push({role:'bot',content:''});
+    renderMessages();
+    const reader=res.body.getReader();
+    const decoder=new TextDecoder();
+    let buffer='';
+    while(true){
+      const{done,value}=await reader.read();
+      if(done)break;
+      buffer+=decoder.decode(value,{stream:true});
+      const lines=buffer.split('\n');
+      buffer=lines.pop();
+      for(const line of lines){
+        if(!line.startsWith('data: '))continue;
+        const data=line.slice(6);
+        if(data==='[DONE]')break;
+        try{
+          const json=JSON.parse(data);
+          const token=json.choices?.[0]?.delta?.content;
+          if(token){
+            history[history.length-1].content+=token;
+            const msgs=document.getElementById('messages');
+            const lastBubble=msgs.querySelector('.msg.bot:last-child .msg-bubble');
+            if(lastBubble){lastBubble.textContent=history[history.length-1].content;msgs.scrollTop=msgs.scrollHeight;}
+          }
+        }catch(e){}
+      }
+    }
   }catch(e){
+    const t=document.getElementById('typing');if(t)t.remove();
     history.push({role:'bot',content:'⚠ Ошибка соединения. Попробуй ещё раз.'});
     document.getElementById('errorBar').textContent='Ошибка: '+e.message;
     document.getElementById('errorBar').style.display='block';
   }finally{
     isLoading=false;document.getElementById('sendBtn').disabled=false;
-    const t=document.getElementById('typing');if(t)t.remove();
     renderMessages();
   }
 }
