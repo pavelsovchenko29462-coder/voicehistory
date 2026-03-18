@@ -1,3 +1,6 @@
+Index · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -492,7 +495,7 @@ async function sendMessage(){
   try{
     const res=await fetch("https://voicehistory-api.pavelsovchenko29462.workers.dev",{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'anthropic/claude-sonnet-4-5',messages:[
+      body:JSON.stringify({model:'anthropic/claude-sonnet-4.6',messages:[
         {role:'system',content:currentPerson.system},
         ...history.map(m=>({role:m.role==='bot'?'assistant':m.role,content:m.content}))
       ]})
