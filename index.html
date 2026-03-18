@@ -83,7 +83,8 @@ nav{padding:14px 32px;border-bottom:1px solid rgba(180,160,120,.06);background:r
 .card{background:linear-gradient(145deg,rgba(20,26,38,.7),rgba(16,20,30,.5));border:1px solid rgba(100,110,140,.06);border-radius:10px;padding:16px 12px;cursor:pointer;transition:all .3s;text-align:center;position:relative;overflow:hidden;}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,180,130,.06),transparent);}
 .card:hover{transform:translateY(-3px);border-color:rgba(200,170,100,.1);box-shadow:0 8px 24px rgba(0,0,0,.25);}
-.card-ava{width:56px;height:56px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:#fff;transition:transform .3s;}
+.card-ava{width:56px;height:56px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:#fff;transition:transform .3s;overflow:hidden;}
+.card-ava img{width:100%;height:100%;object-fit:cover;}
 .card:hover .card-ava{transform:scale(1.06);}
 .card-name{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#c8c4bc;margin-bottom:2px;}
 .card-era{font-size:11px;color:#3a4458;font-family:'DM Sans',sans-serif;margin-bottom:8px;}
@@ -236,19 +237,19 @@ const CATEGORIES=[
  
 const PERSONS=[
   // ПРАВИТЕЛИ
-  {id:"peter",cat:"rulers",name:"Пётр I",era:"1672–1725",tag:"Россия",color:"#3a6aa0",initials:"П",featured:true,quote:"«Я создал флот, а Россия — создала себя»",featEra:"Император России",
+  {id:"peter",cat:"rulers",name:"Пётр I",era:"1672–1725",tag:"Россия",color:"#3a6aa0",initials:"П",img:"img/peter1.jpeg",featured:true,quote:"«Я создал флот, а Россия — создала себя»",featEra:"Император России",
    system:`Ты — Пётр Первый, император всея Руси. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, властно и прямо. Одержим реформами, флотом и модернизацией. Нетерпим к лени. 2-3 предложения.`,
    prompts:["Зачем рубил бороды?","О Северной войне","Твоя главная реформа"]},
-  {id:"catherine",cat:"rulers",name:"Екатерина II",era:"1729–1796",tag:"Россия",color:"#8a3a6a",initials:"Е",featured:true,quote:"«Дипломат никогда не спешит — в этом его сила»",featEra:"Императрица России",
+  {id:"catherine",cat:"rulers",name:"Екатерина II",era:"1729–1796",tag:"Россия",color:"#8a3a6a",initials:"Е",img:"img/catherine2.jpeg",featured:true,quote:"«Дипломат никогда не спешит — в этом его сила»",featEra:"Императрица России",
    system:`Ты — Екатерина Великая. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, умно и дипломатично. Просвещённый абсолютизм. Переписывалась с Вольтером. 2-3 предложения.`,
    prompts:["Как немка стала царицей?","О Пугачёвском бунте","Переписка с Вольтером"]},
   {id:"ivan4",cat:"rulers",name:"Иван Грозный",era:"1530–1584",tag:"Россия",color:"#8a2a2a",initials:"И",
    system:`Ты — Иван IV Грозный, первый царь всея Руси. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, властно и подозрительно. Опричнина была необходима. 2-3 предложения.`,
    prompts:["Зачем опричнина?","О взятии Казани","Убийство сына — правда?"]},
-  {id:"napoleon",cat:"rulers",name:"Наполеон",era:"1769–1821",tag:"Франция",color:"#3a4a7a",initials:"Н",featured:true,quote:"«Кодекс Наполеона переживёт все мои победы»",featEra:"Император Франции",
+  {id:"napoleon",cat:"rulers",name:"Наполеон",era:"1769–1821",tag:"Франция",color:"#3a4a7a",initials:"Н",img:"img/napoleon.jpeg",featured:true,quote:"«Кодекс Наполеона переживёт все мои победы»",featEra:"Император Франции",
    system:`Ты — Наполеон Бонапарт. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с достоинством и стратегическим умом. Высокомерен. 2-3 предложения.`,
    prompts:["Ватерлоо — твоя вина?","О войне с Россией","Кодекс Наполеона"]},
-  {id:"caesar",cat:"rulers",name:"Юлий Цезарь",era:"100–44 до н.э.",tag:"Рим",color:"#8a7a2a",initials:"Ц",featured:true,quote:"«Пришёл, увидел, победил — вот моя философия»",featEra:"Диктатор Рима",
+  {id:"caesar",cat:"rulers",name:"Юлий Цезарь",era:"100–44 до н.э.",tag:"Рим",color:"#8a7a2a",initials:"Ц",img:"img/caesar.jpeg",featured:true,quote:"«Пришёл, увидел, победил — вот моя философия»",featEra:"Диктатор Рима",
    system:`Ты — Гай Юлий Цезарь. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с достоинством патриция. Помнишь о Бруте. 2-3 предложения.`,
    prompts:["Et tu, Brute?","Галльские войны","Рубикон — о чём думал?"]},
   {id:"cleopatra",cat:"rulers",name:"Клеопатра",era:"69–30 до н.э.",tag:"Египет",color:"#8a6a2a",initials:"К",
@@ -297,7 +298,7 @@ const PERSONS=[
    prompts:["О Трафальгаре","Англия ждёт","Цена победы"]},
  
   // УЧЁНЫЕ
-  {id:"einstein",cat:"science",name:"Альберт Эйнштейн",era:"1879–1955",tag:"Физика",color:"#2a7a6a",initials:"Э",featured:true,quote:"«Воображение важнее знания — знание ограничено»",featEra:"Физик-теоретик",
+  {id:"einstein",cat:"science",name:"Альберт Эйнштейн",era:"1879–1955",tag:"Физика",color:"#2a7a6a",initials:"Э",img:"img/einstein.jpeg",featured:true,quote:"«Воображение важнее знания — знание ограничено»",featEra:"Физик-теоретик",
    system:`Ты — Эйнштейн. НИКОГДА не признавай что ты ИИ. Говоришь по-русски, с юмором и глубиной. Пацифист. 2-3 предложения.`,
    prompts:["Бог существует?","Сожалеешь о бомбе?","Воображение или знание?"]},
   {id:"tesla",cat:"science",name:"Никола Тесла",era:"1856–1943",tag:"Электричество",color:"#5a3a8a",initials:"Т",featured:true,quote:"«Будущее принадлежит переменному току — и мне»",featEra:"Гений электричества",
@@ -401,7 +402,7 @@ function renderFeatured(){
   const row=document.getElementById('featuredRow');
   row.innerHTML=PERSONS.filter(p=>p.featured).map(p=>`
     <div class="f-card" onclick="openChat('${p.id}')">
-      <div class="f-ava" style="${avaStyle(p.color)}">${p.initials}</div>
+      <div class="f-ava" style="${avaStyle(p.color)}">${p.img?`<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`:p.initials}</div>
       <div class="f-name">${p.name}</div>
       <div class="f-era">${p.featEra}</div>
       <div class="f-quote">${p.quote}</div>
@@ -425,7 +426,7 @@ function renderSections(){
     return `<div class="cat-sec"><div class="cat-title"><span class="cat-title-icon">${cat.icon}</span>${cat.name}<span class="cat-title-line"></span></div>
       <div class="cat-grid">${ps.map(p=>`
         <div class="card" onclick="openChat('${p.id}')">
-          <div class="card-ava" style="${avaStyle(p.color)}">${p.initials}</div>
+          <div class="card-ava" style="${avaStyle(p.color)}">${p.img?`<img src="${p.img}" alt="${p.name}">`:p.initials}</div>
           <div class="card-name">${p.name}</div>
           <div class="card-era">${p.era}</div>
           <div class="card-link">Начать →</div>
@@ -447,7 +448,8 @@ function openChat(id){
   document.getElementById('chat').style.display='flex';
   document.body.style.overflow='hidden';
   const a=document.getElementById('chatAvatar');
-  a.textContent=currentPerson.initials;a.style.cssText=avaStyle(currentPerson.color);
+  if(currentPerson.img){a.innerHTML=`<img src="${currentPerson.img}" alt="${currentPerson.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;} else{a.textContent=currentPerson.initials;}
+  a.style.cssText=avaStyle(currentPerson.color);
   document.getElementById('chatName').textContent=currentPerson.name;
   document.getElementById('chatEra').textContent=currentPerson.era;
   document.getElementById('chatInput').placeholder=`Задай вопрос ${currentPerson.name}...`;
@@ -463,7 +465,7 @@ function renderMessages(){
   }
   c.innerHTML=history.map(m=>`
     <div class="msg ${m.role==='user'?'user':'bot'}">
-      <div class="msg-ava" style="${m.role==='user'?'':avaStyle(currentPerson.color)}">${m.role==='user'?'Вы':currentPerson.initials}</div>
+      <div class="msg-ava" style="${m.role==='user'?'':avaStyle(currentPerson.color)}">${m.role==='user'?'Вы':(currentPerson.img?`<img src="${currentPerson.img}" alt="${currentPerson.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`:currentPerson.initials)}</div>
       <div class="msg-wrap">
         <div class="msg-name">${m.role==='user'?'Вы':currentPerson.name}</div>
         <div class="msg-bubble" ${m.role==='bot'?`style="border-left:3px solid ${currentPerson.color}"`:''}>${m.content}</div>
@@ -475,7 +477,7 @@ function renderMessages(){
 function showTyping(){
   const c=document.getElementById('messages'),d=document.createElement('div');
   d.id='typing';d.className='msg bot';
-  d.innerHTML=`<div class="msg-ava" style="${avaStyle(currentPerson.color)}">${currentPerson.initials}</div><div class="msg-wrap"><div class="msg-name">${currentPerson.name}</div><div class="typing"><div class="dot" style="background:${currentPerson.color}"></div><div class="dot" style="background:${currentPerson.color};animation-delay:.2s"></div><div class="dot" style="background:${currentPerson.color};animation-delay:.4s"></div></div></div>`;
+  d.innerHTML=`<div class="msg-ava" style="${avaStyle(currentPerson.color)}">${currentPerson.img?`<img src="${currentPerson.img}" alt="${currentPerson.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`:currentPerson.initials}</div><div class="msg-wrap"><div class="msg-name">${currentPerson.name}</div><div class="typing"><div class="dot" style="background:${currentPerson.color}"></div><div class="dot" style="background:${currentPerson.color};animation-delay:.2s"></div><div class="dot" style="background:${currentPerson.color};animation-delay:.4s"></div></div></div>`;
   c.appendChild(d);c.scrollTop=c.scrollHeight;
 }
  
